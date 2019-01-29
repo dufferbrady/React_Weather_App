@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 
+import WeatherTiles from '../../components/WeatherTiles/WeatherTiles'
+
 class WeatherData extends Component {
     render() {
         return (
             <div>
-                <p>Weather Tile</p>
-                <p>Weather Tile</p>
-                <p>Weather Tile</p>
-                <p>Weather Tile</p>
-                <p>Weather Tile</p>
+                <WeatherTiles />
             </div>
         )
     }
