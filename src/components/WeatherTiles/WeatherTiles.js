@@ -1,9 +1,10 @@
 import React from 'react'
 
 import WeatherTile from './WeatherTile/WeatherTile'
+import classes from './WeatherTiles.css'
 
 const WeatherTiles = props => (
-    <div>
+    <div className={ classes.Tiles }>
         <WeatherTile />
         <WeatherTile />
         <WeatherTile />

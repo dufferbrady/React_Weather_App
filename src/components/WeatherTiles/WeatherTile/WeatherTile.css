@@ -1,0 +1,8 @@
+.Tile {
+    border: 1px solid #aaa;
+    background-color: #fff;
+    display: inline-block;
+    padding: 10px;
+    margin: 20px;
+    box-sizing: border-box;
+}
