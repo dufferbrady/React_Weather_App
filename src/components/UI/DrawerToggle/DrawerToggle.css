@@ -1,0 +1,25 @@
+.Drawer {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    margin-left: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.Drawer div {
+    width: 90%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: white;
+}
+
+@media (min-width: 500px) {
+    .Drawer {
+        display: none;
+    }
+}
