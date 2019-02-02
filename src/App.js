@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 
 import Layout from './components/Layout/Layout'
-import WeatherData from './containers/WeatherData/WeatherData'
+import SearchWeather from './containers/SearchWeather/SearchWeather'
 import classes from './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThermometerThreeQuarters } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faThermometerThreeQuarters)
@@ -14,7 +14,9 @@ class App extends Component {
     return (
       <div className={ classes.App }>
         <Layout>
-          <WeatherData />
+          <Switch>
+            <Route path="/" component={ SearchWeather } />
+          </Switch>
         </Layout>
       </div>
     );
