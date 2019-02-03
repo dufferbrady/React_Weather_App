@@ -15,6 +15,7 @@ class App extends Component {
       <div className={ classes.App }>
         <Layout>
           <Switch>
+            <Route path="/Current" render={() => (<div style={{"margin-top": "100px"}}>Hey There!</div>)} />
             <Route path="/" component={ SearchWeather } />
           </Switch>
         </Layout>
