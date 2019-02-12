@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const currentInstance = axios.create({
-    BaseURL: 'api.openweathermap.org/data/2.5/weather'
+    BaseURL: 'http://api.apixu.com/v1'
 })
 
 export default currentInstance

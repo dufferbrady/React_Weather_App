@@ -7,8 +7,8 @@ const WeatherTile = props => (
         <img src={ props.icon } alt="Forecasted Weather Icon"/>
         <p>Conditions: { props.conditions }</p>
         <div>
-            <p>Max Temp: { props.max_temp }</p>
-            <p>Min Temp: { props.min_temp }</p>
+            <p>Max Temp: { props.temp_max } C</p>
+            <p>Min Temp: { props.temp_min } C</p>
         </div>
     </div>
 )

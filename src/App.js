@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Layout from './components/Layout/Layout'
 import SearchWeather from './containers/SearchWeather/SearchWeather'
+import Weather from './containers/Weather/Weather'
 import classes from './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThermometerThreeQuarters } from '@fortawesome/free-solid-svg-icons'
@@ -15,8 +16,8 @@ class App extends Component {
       <div className={ classes.App }>
         <Layout>
           <Switch>
-            <Route path="/Current" render={() => (<div style={{"margin-top": "100px"}}>Hey There!</div>)} />
-            <Route path="/" component={ SearchWeather } />
+            <Route path="/forecast" component={ Weather }/>
+            <Route path="/" exact component={ SearchWeather } />
           </Switch>
         </Layout>
       </div>
