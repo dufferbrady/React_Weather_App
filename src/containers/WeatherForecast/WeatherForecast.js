@@ -1,17 +1,30 @@
 import React from 'react'
 
 import WeatherTile from '../../components/WeatherTile/WeatherTile'
+import classes from './WeatherForecast.css'
+
+const DATES = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thur",
+    "Fri",
+    "Sat"
+]
 
 const weatherForecast = props => {
     console.log("[WeatherForecast]", props.forecast )
+    let dd = new Date().getDay()
     let weatherTiles = props.forecast.map((day, index) => {
-        // console.log(day)
-        let temp_max = (day.main.temp_max - 273.15).toFixed(1)
-        let temp_min = (day.main.temp_min - 273.15).toFixed(1)
+        index = (dd + index) % 7;
+        let date = DATES[index]
+        let temp_max = (day.main.temp_max - 273.15).toFixed(0)
+        let temp_min = (day.main.temp_min - 273.15).toFixed(0)
         let imageURL = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`
-        // console.log(day.weather[0].description)
         return (
             <WeatherTile 
+            day={ date }
             key={ index }
             temp_max={ temp_max }
             temp_min={ temp_min }
@@ -20,7 +33,7 @@ const weatherForecast = props => {
         )
     })
     return (
-        <div>
+        <div className={ classes.WeatherForecast }>
             { weatherTiles }
         </div>
     )

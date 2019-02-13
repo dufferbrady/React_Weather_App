@@ -25,7 +25,10 @@ class weather extends Component {
         temperature: null,
         icon: null,
         description: null,
-        date: undefined
+        date: undefined,
+        humidity: undefined,
+        wind: undefined,
+        cloudiness: undefined
     }
     componentDidMount () {
         this.setState({loading: true})
@@ -35,13 +38,14 @@ class weather extends Component {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                const temp = (data.main.temp - 273.15).toFixed(1);
+                const temp = (data.main.temp - 273.15).toFixed(0);
                 const icon = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
                 const date = new Date()
                 const dd = DATES[date.getDay()]
                 const hh = date.getHours()
                 const mm = date.getMinutes()
                 const today = `${dd}, ${hh}:${mm}`
+                const windSpeed = (data.wind.speed * 360 / 1000).toFixed(0);
                 this.setState({
                     city: city,
                     country: data.sys.country,
@@ -49,7 +53,10 @@ class weather extends Component {
                     icon: icon,
                     description: data.weather[0].description,
                     loading: false,
-                    date: today
+                    date: today,
+                    humidity: data.main.humidity,
+                    wind: windSpeed,
+                    cloudiness: data.clouds.all
                 })
                 console.log(this.state.date)
             })
@@ -66,10 +73,11 @@ class weather extends Component {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            const forecastDays = data.list.slice(0, 7);
             this.setState({
                 showForecast: true,
                 forecastLoading: false,
-                forecast: data.list
+                forecast: forecastDays
             })
         })
         .catch(error => console.log(error))
@@ -88,13 +96,33 @@ class weather extends Component {
 
         let weather = (
             <div className={ classes.Weather }>
-                <div>
-                    <span>{ this.state.city }, { this.state.country }</span>
-                    <span>{ this.state.date }</span>
-                    <span>{ this.state.description }</span>
+                <div className={ classes.HeaderContainer }> 
+                    <span className={ classes.HeaderCity }>{ this.state.city }, { this.state.country }</span>
+                    <span className={ classes.spanItem }>{ this.state.date }</span>
+                    <span className={ classes.spanItem }>{ this.state.description }</span>
                 </div>
-                <img src={ this.state.icon } alt="The current weather"/>
-                <p>Temperature: { this.state.temperature }</p>
+                <div className={ classes.WeatherContainer }>
+                    <div className={ classes.WeatherInfo }>
+                        <img className={ classes.WeatherIcon } src={ this.state.icon } alt="The current weather"/>
+                        <div className={ classes.WeatherTempContainer }>
+                            <span className={ classes.WeatherTemp }>{ this.state.temperature }</span>
+                            <div className={ classes.WeatherTempToggle }>
+                                <span className={ classes.Celsius }>
+                                   &deg; C 
+                                </span>
+                                <span> |</span> 
+                                <span className={ classes.Farenheit }>
+                                    &deg; F 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={ classes.WeatherStats }>
+                        <div>Humidity: { this.state.humidity }%</div>
+                        <div>Cloudiness: { this.state.cloudiness }%</div>
+                        <div>Wind: { this.state.wind } km/h</div>
+                    </div>
+                </div>
                 <button onClick={ this.getForecast }>Get Forecast!</button>
                 { weatherForecast }
             </div>

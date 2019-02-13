@@ -1,7 +1,103 @@
 .Weather {
     margin: 100px auto;
     border: 1px solid #eee;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.WeatherContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.HeaderContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: flex-start;
+    margin-left: 25px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.spanItem {
+    font-size: 125%;
+}
+
+.HeaderContainer span {
+    color: rgb(148, 148, 148);
+    padding: 2.5px 0;
+}
+
+.HeaderCity {
+    font-weight: 500;
+    font-size: 200%;
+}
+
+.WeatherInfo {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.WeatherIcon {
+    font-size: 125%;
+    width: 30%;
+}
+
+.WeatherTempContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.WeatherTemp {
+    font-size: 300%;
+    font-family: 'Raleway', sans-serif;
+    padding-left: 10px;
+}
+
+.WeatherTempToggle {
+    font-size: 100%;
+    font-family: 'Raleway', sans-serif;
+    padding-left: 10px;
+    margin-top: 15%;
+}
+
+.Celsius {
+    cursor: pointer;
+}
+
+.Farenheit {
+    cursor: pointer;
+}
+
+.WeatherStats {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    width: 35%;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    font-family: 'Raleway', sans-serif;
+}
+
+.WeatherStats div {
+    font-size: 125%;
+    color: rgb(148, 148, 148);
+}
+
+.WeatherTile {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 12.5%;
+    justify-content: space-evenly
 }
 
 .Closed {

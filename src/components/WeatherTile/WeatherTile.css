@@ -1,9 +1,28 @@
 .Tile {
-    border: 1px solid #aaa;
     background-color: #fff;
-    display: inline-block;
-    padding: 10px;
-    margin: 20px;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(148, 148, 148);
+    border-radius: 2px;
+}
+
+.TileHeader {
+    font-weight: 500;
+    font-size: 125%;
+    width: 100%;
+}
+
+.TileTemp span {
+    font-size: 125%;
+    padding: 0 5px;
+}
+
+.Tile:active, .Tile:hover {
+    border: 1px solid #2670AF;
     box-sizing: border-box;
 }
 
