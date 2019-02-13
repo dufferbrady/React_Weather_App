@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import classes from './Weather.css'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import WeatherForecast from '../WeatherForecast/WeatherForecast'
+import Button from '../../components/UI/Button/Button'
 
 const DATES = {
     0: "Sunday",
@@ -76,7 +77,7 @@ class weather extends Component {
             const forecastDays = data.list.slice(0, 7);
             this.setState({
                 showForecast: true,
-                forecastLoading: false,
+                // forecastLoading: false,
                 forecast: forecastDays
             })
         })
@@ -123,7 +124,12 @@ class weather extends Component {
                         <div>Wind: { this.state.wind } km/h</div>
                     </div>
                 </div>
-                <button onClick={ this.getForecast }>Get Forecast!</button>
+                <Button 
+                load={ this.getForecast }
+                forecastLoading={ this.state.forecastLoading }
+                forecast={ this.state.forecast }>
+                    Get Forecast!
+                </Button>
                 { weatherForecast }
             </div>
         )

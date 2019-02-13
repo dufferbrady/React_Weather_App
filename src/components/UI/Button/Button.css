@@ -1,0 +1,51 @@
+.Button {
+    outline:none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius:40px;
+    background: white;
+    border: 2px solid #2670AF;
+    color:#2670AF;
+    letter-spacing: 1px;
+    text-shadow:0;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin: 0 auto;
+}
+
+.Button:hover{
+        color:white;
+        background: #2670AF;
+}
+
+.Onclic {
+    outline: none;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-color: rgb(148, 148, 148);
+    border-width:5px;
+    border-style: solid;
+    border-radius: 50%;
+    font-size:0;
+    border-left-color: #2670AF;
+    /* border-top-color: rgb(148, 148, 148); 
+    border-right-color: #2670AF;
+    border-bottom-color: #2670AF;  */
+    animation: rotating 2s 0.25s linear infinite;
+}
+
+.Closed {
+    display: none;
+}
+
+@keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
