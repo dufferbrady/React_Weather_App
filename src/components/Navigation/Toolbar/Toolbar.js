@@ -8,11 +8,11 @@ import DrawerToggle from '../../UI/DrawerToggle/DrawerToggle'
 const toolbar = props => (
     <header className={ classes.Toolbar }>
         <DrawerToggle open={ props.showSideDrawer } />
-        <div>
+        {/* <div>
             <FontAwesomeIcon 
             icon="thermometer-three-quarters"
             className={ classes.Logo } />
-        </div>
+        </div> */}
         <nav className={ classes.DesktopOnly }>
             <NavigationItems />
         </nav>

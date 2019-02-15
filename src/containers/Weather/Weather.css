@@ -1,3 +1,11 @@
+html, body { 
+    background: url("https://images.unsplash.com/photo-1544415595-e38016facd98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1266&q=80") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
 .Weather {
     margin: 100px auto;
     border: 1px solid #eee;
