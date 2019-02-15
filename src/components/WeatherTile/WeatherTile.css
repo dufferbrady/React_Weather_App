@@ -21,6 +21,14 @@
     padding: 0 5px;
 }
 
+.MaxTemp {
+    color: #878787;
+}
+
+.MinTemp {
+    color: #D9D9D9
+}
+
 .Tile:active, .Tile:hover {
     border: 1px solid #2670AF;
     box-sizing: border-box;

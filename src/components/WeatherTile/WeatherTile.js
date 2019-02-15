@@ -8,8 +8,8 @@ const WeatherTile = props => {
             <span className={ classes.TileHeader }>{ props.day }</span>
             <img src={ props.icon } alt="Forecasted Weather Icon"/>
             <div className={ classes.TileTemp }>
-                <span>{ props.temp_max }&deg;</span>
-                <span>{ props.temp_min }&deg;</span>
+                <span className={ classes.MaxTemp }>{ props.temp_max }&deg;</span>
+                <span className={ classes.MinTemp }>{ props.temp_min }&deg;</span>
             </div>
         </div>  
     )
