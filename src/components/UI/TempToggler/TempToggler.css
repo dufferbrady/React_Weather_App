@@ -1,0 +1,16 @@
+.Icon {
+    padding: 0 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 100%;
+}
+
+.Active {
+    cursor: pointer;
+    color: #2670AF;
+}
+
+.InActive {
+    cursor: default;
+}

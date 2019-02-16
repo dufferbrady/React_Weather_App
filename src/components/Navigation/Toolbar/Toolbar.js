@@ -1,7 +1,6 @@
 import React from 'react'
 
 import NavigationItems from '../NavigationItems/NavigationItems'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classes from './Toolbar.css'
 import DrawerToggle from '../../UI/DrawerToggle/DrawerToggle'
 

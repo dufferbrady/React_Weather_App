@@ -4,6 +4,7 @@ import classes from './Weather.css'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import WeatherForecast from '../WeatherForecast/WeatherForecast'
 import Button from '../../components/UI/Button/Button'
+import TempToggler from '../../components/UI/TempToggler/TempToggler'
 
 const DATES = {
     0: "Sunday",
@@ -29,7 +30,9 @@ class weather extends Component {
         date: undefined,
         humidity: undefined,
         wind: undefined,
-        cloudiness: undefined
+        cloudiness: undefined,
+        celsiusActive: false,
+        FarenheitActive: false
     }
     componentDidMount () {
         this.setState({loading: true})
@@ -57,13 +60,32 @@ class weather extends Component {
                     date: today,
                     humidity: data.main.humidity,
                     wind: windSpeed,
-                    cloudiness: data.clouds.all
+                    cloudiness: data.clouds.all,
+                    celsiusActive: true
                 })
                 console.log(this.state.date)
             })
             .catch(error => {
                 console.log(error)
             })
+    }
+
+    setCelsiusHandler = farenheit => {
+        const Celcius = ((farenheit - 32) * (5 / 9)).toFixed(0);
+        this.setState({
+            temperature: Celcius,
+            celsiusActive: true,
+            FarenheitActive: false
+        })
+    }
+
+    setFarenheitHandler = celsius => {
+        const Farenheit = ((celsius * (9 / 5)) + 32).toFixed(0);
+        this.setState({
+            temperature: Farenheit,
+            celsiusActive: false,
+            FarenheitActive: true
+        })
     }
 
     getForecast = () => {
@@ -108,13 +130,13 @@ class weather extends Component {
                         <div className={ classes.WeatherTempContainer }>
                             <span className={ classes.WeatherTemp }>{ this.state.temperature }</span>
                             <div className={ classes.WeatherTempToggle }>
-                                <span className={ classes.Celsius }>
+                                <TempToggler active={ this.state.celsiusActive } click={ () => this.setCelsiusHandler(this.state.temperature)}>
                                    &deg; C 
-                                </span>
-                                <span> |</span> 
-                                <span className={ classes.Farenheit }>
+                                </TempToggler>
+                                <span> | </span> 
+                                <TempToggler active={ this.state.FarenheitActive } click={ () => this.setFarenheitHandler(this.state.temperature)}>
                                     &deg; F 
-                                </span>
+                                </TempToggler>
                             </div>
                         </div>
                     </div>
