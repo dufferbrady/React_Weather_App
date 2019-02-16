@@ -32,7 +32,7 @@ class weather extends Component {
         wind: undefined,
         cloudiness: undefined,
         celsiusActive: false,
-        FarenheitActive: false
+        farenheitActive: false
     }
     componentDidMount () {
         this.setState({loading: true})
@@ -75,7 +75,7 @@ class weather extends Component {
         this.setState({
             temperature: Celcius,
             celsiusActive: true,
-            FarenheitActive: false
+            farenheitActive: false
         })
     }
 
@@ -84,7 +84,7 @@ class weather extends Component {
         this.setState({
             temperature: Farenheit,
             celsiusActive: false,
-            FarenheitActive: true
+            farenheitActive: true
         })
     }
 
@@ -114,7 +114,12 @@ class weather extends Component {
         let weatherForecast = null
 
         if(this.state.showForecast) {
-            weatherForecast = <WeatherForecast forecast={ this.state.forecast }/>
+            weatherForecast = (
+                <WeatherForecast 
+                forecast={ this.state.forecast }
+                celsiusActive={ this.state.celsiusActive }
+                farenheitActive={ this.state.farenheitActive }/>
+            )
         }
 
         let weather = (
@@ -134,7 +139,7 @@ class weather extends Component {
                                    &deg; C 
                                 </TempToggler>
                                 <span> | </span> 
-                                <TempToggler active={ this.state.FarenheitActive } click={ () => this.setFarenheitHandler(this.state.temperature)}>
+                                <TempToggler active={ this.state.farenheitActive } click={ () => this.setFarenheitHandler(this.state.temperature)}>
                                     &deg; F 
                                 </TempToggler>
                             </div>

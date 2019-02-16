@@ -19,8 +19,15 @@ const weatherForecast = props => {
     let weatherTiles = props.forecast.map((day, index) => {
         index = (dd + index) % 7;
         let date = DATES[index]
-        let temp_max = (day.main.temp_max - 273.15).toFixed(0)
-        let temp_min = (day.main.temp_min - 273.15).toFixed(0)
+        let temp_max, temp_min;
+        if(props.celsiusActive) {
+            temp_max = (day.main.temp_max - 273.15).toFixed(0)
+            temp_min = (day.main.temp_min - 273.15).toFixed(0)
+        }
+        if(props.farenheitActive) {
+            temp_max = ((day.main.temp_max - 273.15) * (9 / 5) + 32).toFixed(0);
+            temp_min = ((day.main.temp_min - 273.15) * (9 / 5) + 32).toFixed(0);
+        }
         let imageURL = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`
         return (
             <WeatherTile 
