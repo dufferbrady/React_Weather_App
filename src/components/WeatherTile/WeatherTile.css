@@ -3,6 +3,7 @@
     border: 1px solid transparent;
     display: flex;
     flex-direction: column;
+    width: 12.5%;
     padding: 15px;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
@@ -17,7 +18,7 @@
 }
 
 .TileTemp span {
-    font-size: 125%;
+    font-size: 1.5vw;
     padding: 0 5px;
 }
 
@@ -36,4 +37,8 @@
 
 .Closed {
     display: none;
+}
+
+@media (max-width: 500px) {
+    
 }

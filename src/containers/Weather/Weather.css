@@ -108,3 +108,19 @@ html, body {
     display: none
 }
 
+@media (max-width: 500px) {
+    .Weather {
+        width: 80%;
+    }
+    .HeaderContainer {
+        margin-left: 10px;
+    }
+    /* .WeatherIcon {
+        font-size: 75%;
+        width: 20%;
+    } */
+    /* .Weatherinfo {
+        width: 60%;
+    } */
+}
+

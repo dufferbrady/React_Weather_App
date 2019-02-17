@@ -38,7 +38,9 @@ class weather extends Component {
         this.setState({loading: true})
         const city = this.props.location.search.substr(6)
         const API_key = "4c04be157de57a31223958d6b571bd89"
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_key}`)
+        const updatedCity = city.charAt(0).toUpperCase() + city.slice(1);
+        console.log(updatedCity)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_key}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -47,11 +49,14 @@ class weather extends Component {
                 const date = new Date()
                 const dd = DATES[date.getDay()]
                 const hh = date.getHours()
-                const mm = date.getMinutes()
+                let mm = date.getMinutes()
+                if(mm < 10) {
+                    mm = `0${mm}`
+                }
                 const today = `${dd}, ${hh}:${mm}`
                 const windSpeed = (data.wind.speed * 360 / 1000).toFixed(0);
                 this.setState({
-                    city: city,
+                    city: updatedCity,
                     country: data.sys.country,
                     temperature: temp,
                     icon: icon,
