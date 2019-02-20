@@ -14,6 +14,7 @@ class NavSearchItem extends Component {
     }
 
     submitHandler = async event => {
+        event.preventDefault();
         const city = event.target.elements.city.value
         const queryParams = encodeURIComponent(city)
         console.log(queryParams)

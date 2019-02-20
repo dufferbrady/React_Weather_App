@@ -40,6 +40,7 @@ class weather extends Component {
         console.log(city)
         const API_key = "4c04be157de57a31223958d6b571bd89"
         const updatedCity = city.charAt(0).toUpperCase() + city.slice(1);
+        this.setState({city: updatedCity})
         console.log(updatedCity)
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_key}`)
             .then(res => res.json())
@@ -57,7 +58,6 @@ class weather extends Component {
                 const today = `${dd}, ${hh}:${mm}`
                 const windSpeed = (data.wind.speed * 360 / 1000).toFixed(0);
                 this.setState({
-                    city: updatedCity,
                     country: data.sys.country,
                     temperature: temp,
                     icon: icon,
@@ -74,6 +74,53 @@ class weather extends Component {
             .catch(error => {
                 console.log(error)
             })
+    }
+
+    componentDidUpdate = prevProps => {
+        if(this.props.location.search !== prevProps.location.search) {
+            this.setState({loading: true})
+            const city = this.props.location.search.substr(6)
+            console.log(city)
+            const API_key = "4c04be157de57a31223958d6b571bd89"
+            const updatedCity = city.charAt(0).toUpperCase() + city.slice(1);
+            this.setState({city: updatedCity})
+            console.log(updatedCity)
+            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_key}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const temp = (data.main.temp - 273.15).toFixed(0);
+                    const icon = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+                    const date = new Date()
+                    const dd = DATES[date.getDay()]
+                    const hh = date.getHours()
+                    let mm = date.getMinutes()
+                    if(mm < 10) {
+                        mm = `0${mm}`
+                    }
+                    const today = `${dd}, ${hh}:${mm}`
+                    const windSpeed = (data.wind.speed * 360 / 1000).toFixed(0);
+                    this.setState({
+                        country: data.sys.country,
+                        temperature: temp,
+                        icon: icon,
+                        description: data.weather[0].description,
+                        loading: false,
+                        date: today,
+                        humidity: data.main.humidity,
+                        wind: windSpeed,
+                        cloudiness: data.clouds.all,
+                        celsiusActive: true
+                    })
+                    console.log(this.state.date)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+        // console.log(this.props.location.search.substr(6))
+        // console.log(prevProps)
+        // console.log(prevState)
     }
 
     setCelsiusHandler = farenheit => {
