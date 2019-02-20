@@ -1,14 +1,44 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import classes from './NavigationSearchItems.css'
 
-const NavSearchItem = props => (
-    <li className={ classes.NavigationSearchItem }>
-        <input 
-        className={ props.active ? classes.active : null }
-        type="text" 
-        placeholder="Search New City"/>
-    </li>
-)
+class NavSearchItem extends Component {
+    state = {
+        newCity: ""
+    }
 
-export default NavSearchItem
+    inputCityHandler = event => {
+        this.setState({newCity: event.target.value})
+        console.log(event.target.value)
+    }
+
+    submitHandler = async event => {
+        const city = event.target.elements.city.value
+        const queryParams = encodeURIComponent(city)
+        console.log(queryParams)
+        this.props.history.push({
+            pathname: '/forecast',
+            search: `?city=${queryParams}`
+        })
+    }
+
+    render() {
+        return (
+            <li>
+                <form className={ classes.NavigationSearchItem } onSubmit={ this.submitHandler }>
+                    <input 
+                    autoComplete="off"
+                    name="city"
+                    className={ this.props.active ? classes.active : null }
+                    type="text" 
+                    value={ this.state.newCity }
+                    placeholder="Search New City"
+                    onChange={ this.inputCityHandler }/>
+                </form>
+            </li>
+        )
+    }
+}
+
+export default withRouter(NavSearchItem)

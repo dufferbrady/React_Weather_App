@@ -37,6 +37,7 @@ class weather extends Component {
     componentDidMount () {
         this.setState({loading: true})
         const city = this.props.location.search.substr(6)
+        console.log(city)
         const API_key = "4c04be157de57a31223958d6b571bd89"
         const updatedCity = city.charAt(0).toUpperCase() + city.slice(1);
         console.log(updatedCity)

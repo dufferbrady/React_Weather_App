@@ -24,18 +24,6 @@ class searchWeather extends Component {
 
     render() {
         console.log("[SearchWeather] RENDER:", this.props)
-        // let weather = (
-        //     <Weather 
-        //         city={ this.state.city }
-        //         country={ this.state.country }
-        //         temperature={ this.state.temperature }
-        //         description={ this.state.description }
-        //         icon={ this.state.icon }
-        //         show={ this.state.showWeather }
-        //         getForecast={ this.getForecast } 
-        //         forecast={ this.state.forecast }
-        //         showForecast={ this.state.showForecast }/>
-        // )
         let weather = null
 
         if(this.state.loading) {
