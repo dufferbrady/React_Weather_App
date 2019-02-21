@@ -22,6 +22,7 @@ class NavSearchItem extends Component {
             pathname: '/forecast',
             search: `?city=${queryParams}`
         })
+        this.setState({newCity: ""})
     }
 
     render() {

@@ -34,28 +34,32 @@ class weather extends Component {
         celsiusActive: false,
         farenheitActive: false
     }
+
     componentDidMount () {
         this.setState({loading: true})
         const city = this.props.location.search.substr(6)
-        console.log(city)
-        const API_key = "4c04be157de57a31223958d6b571bd89"
+        this.getWeatherHandler(city);
+    }
+
+    componentDidUpdate = prevProps => {
+        if(this.props.location.search !== prevProps.location.search) {
+            this.setState({loading: true})
+            const city = this.props.location.search.substr(6)
+            this.getWeatherHandler(city);
+        }
+    }
+
+    getWeatherHandler = city => {
+        const API_Key = "4c04be157de57a31223958d6b571bd89"
         const updatedCity = city.charAt(0).toUpperCase() + city.slice(1);
         this.setState({city: updatedCity})
-        console.log(updatedCity)
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_key}`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_Key}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 const temp = (data.main.temp - 273.15).toFixed(0);
                 const icon = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
                 const date = new Date()
-                const dd = DATES[date.getDay()]
-                const hh = date.getHours()
-                let mm = date.getMinutes()
-                if(mm < 10) {
-                    mm = `0${mm}`
-                }
-                const today = `${dd}, ${hh}:${mm}`
+                const today = this.getDateHandler(date);
                 const windSpeed = (data.wind.speed * 360 / 1000).toFixed(0);
                 this.setState({
                     country: data.sys.country,
@@ -69,58 +73,20 @@ class weather extends Component {
                     cloudiness: data.clouds.all,
                     celsiusActive: true
                 })
-                console.log(this.state.date)
             })
             .catch(error => {
                 console.log(error)
             })
     }
 
-    componentDidUpdate = prevProps => {
-        if(this.props.location.search !== prevProps.location.search) {
-            this.setState({loading: true})
-            const city = this.props.location.search.substr(6)
-            console.log(city)
-            const API_key = "4c04be157de57a31223958d6b571bd89"
-            const updatedCity = city.charAt(0).toUpperCase() + city.slice(1);
-            this.setState({city: updatedCity})
-            console.log(updatedCity)
-            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_key}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    const temp = (data.main.temp - 273.15).toFixed(0);
-                    const icon = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
-                    const date = new Date()
-                    const dd = DATES[date.getDay()]
-                    const hh = date.getHours()
-                    let mm = date.getMinutes()
-                    if(mm < 10) {
-                        mm = `0${mm}`
-                    }
-                    const today = `${dd}, ${hh}:${mm}`
-                    const windSpeed = (data.wind.speed * 360 / 1000).toFixed(0);
-                    this.setState({
-                        country: data.sys.country,
-                        temperature: temp,
-                        icon: icon,
-                        description: data.weather[0].description,
-                        loading: false,
-                        date: today,
-                        humidity: data.main.humidity,
-                        wind: windSpeed,
-                        cloudiness: data.clouds.all,
-                        celsiusActive: true
-                    })
-                    console.log(this.state.date)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+    getDateHandler = date => {
+        const dd = DATES[date.getDay()]
+        const hh = date.getHours()
+        let mm = date.getMinutes()
+        if(mm < 10) {
+            mm = `0${mm}`
         }
-        // console.log(this.props.location.search.substr(6))
-        // console.log(prevProps)
-        // console.log(prevState)
+        return `${dd}, ${hh}:${mm}`;
     }
 
     setCelsiusHandler = farenheit => {
