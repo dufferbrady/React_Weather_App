@@ -10,14 +10,12 @@ class NavSearchItem extends Component {
 
     inputCityHandler = event => {
         this.setState({newCity: event.target.value})
-        console.log(event.target.value)
     }
 
     submitHandler = async event => {
         event.preventDefault();
         const city = event.target.elements.city.value
         const queryParams = encodeURIComponent(city)
-        console.log(queryParams)
         this.props.history.push({
             pathname: '/forecast',
             search: `?city=${queryParams}`

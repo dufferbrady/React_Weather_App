@@ -6,9 +6,9 @@ import SearchWeather from './containers/SearchWeather/SearchWeather'
 import Weather from './containers/Weather/Weather'
 import classes from './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faThermometerThreeQuarters } from '@fortawesome/free-solid-svg-icons'
+import { faFrown } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faThermometerThreeQuarters)
+library.add(faFrown)
 
 class App extends Component {
   render() {

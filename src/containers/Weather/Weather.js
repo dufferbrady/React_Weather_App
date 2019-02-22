@@ -5,6 +5,7 @@ import Spinner from '../../components/UI/Spinner/Spinner'
 import WeatherForecast from '../WeatherForecast/WeatherForecast'
 import Button from '../../components/UI/Button/Button'
 import TempToggler from '../../components/UI/TempToggler/TempToggler'
+import ErrorHandling from '../../components/ErrorHandling/ErrorHandling'
 
 const DATES = {
     0: "Sunday",
@@ -32,7 +33,9 @@ class weather extends Component {
         wind: undefined,
         cloudiness: undefined,
         celsiusActive: false,
-        farenheitActive: false
+        farenheitActive: false,
+        error: false,
+        message: ""
     }
 
     componentDidMount () {
@@ -75,7 +78,11 @@ class weather extends Component {
                 })
             })
             .catch(error => {
-                console.log(error)
+                this.setState({
+                    loading: false,
+                    message: 'Something went wrong. Please try again.',
+                    error: error
+                })
             })
     }
 
@@ -118,18 +125,18 @@ class weather extends Component {
             const forecastDays = data.list.slice(0, 7);
             this.setState({
                 showForecast: true,
-                // forecastLoading: false,
                 forecast: forecastDays
             })
         })
-        .catch(error => console.log(error))
+        .catch(error => 
+            this.setState({
+                loading: false,
+                message: 'Something went wrong. Please try again.',
+                error: error
+            })
+        )
     }
     render() {
-        console.log("RENDER:", this.state.date)
-        // let attachedClasses = [classes.Weather, classes.Closed];
-        // if(props.show) {
-        //     attachedClasses=[classes.Weather] 
-        // } 
         let weatherForecast = null
 
         if(this.state.showForecast) {
@@ -182,10 +189,13 @@ class weather extends Component {
         if(this.state.loading) {
             weather = <Spinner />
         }
+        if(this.state.error) {
+            weather = <ErrorHandling error={this.state.error} message={this.state.message}/>
+        }
         return (
-         <div>
-            { weather }
-         </div>
+            <div>
+                { weather }
+            </div>
         )
     }
 }
