@@ -88,8 +88,11 @@ class weather extends Component {
 
     getDateHandler = date => {
         const dd = DATES[date.getDay()]
-        const hh = date.getHours()
+        let hh = date.getHours()
         let mm = date.getMinutes()
+        if(hh < 10) {
+            hh = `0${hh}`
+        }
         if(mm < 10) {
             mm = `0${mm}`
         }
