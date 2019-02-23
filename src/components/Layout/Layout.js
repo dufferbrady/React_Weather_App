@@ -25,7 +25,8 @@ class Layout extends Component {
                 <Toolbar showSideDrawer={ this.toggleSideDrawerHandler }/>
                 <SideDrawer 
                 open={ this.state.showSideDrawer }
-                closed={ this.closeSideDrawerHandler }/>
+                closed={ this.closeSideDrawerHandler }
+                remove={ this.toggleSideDrawerHandler }/>
                 <div> { this.props.children } </div>
             </Aux>
         )

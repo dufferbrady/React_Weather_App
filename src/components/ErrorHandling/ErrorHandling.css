@@ -7,7 +7,7 @@ html, body {
 
 .Error {
     margin: auto;
-    height: 40%;
+    height: 60%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -40,7 +40,7 @@ html, body {
 }
 
 .Details {
-    height: 30%;
+    /* height: 30%; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -49,6 +49,28 @@ html, body {
 
 .Summary {
     outline: none;
+}
+
+.Button {
+    outline:none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius:40px;
+    background: white;
+    border: 2px solid #2670AF;
+    color:#2670AF;
+    letter-spacing: 1px;
+    text-shadow:0;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin: 0 auto;
+}
+
+.Button:hover{
+        color:white;
+        background: #2670AF;
 }
 
 @media (max-width: 499px) {
@@ -60,5 +82,8 @@ html, body {
     .Message h2 {
         font-size: 120%;
         margin-top: 5%;
+    }
+    .Details {
+        height: auto;
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import classes from './ErrorHandling.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,6 +17,9 @@ const errorHandler = props => (
             {props.error && props.error.toString()}
           <br />
         </details>
+        <Link to="/">
+            <button className={ classes.Button }>Retry</button>
+        </Link>
     </div>
 )
 

@@ -10,6 +10,10 @@
     height: 100%;
 }
 
+.Closed {
+    display: none;
+}
+
 @media (min-width: 500px) {
     .NavigationItems {
         flex-flow: row;

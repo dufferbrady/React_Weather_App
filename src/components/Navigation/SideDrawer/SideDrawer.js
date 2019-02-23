@@ -17,12 +17,9 @@ const sideDrawer = props => {
             show={ props.open }
             clicked={ props.closed }/>
             <div className={ attachedClasses.join(' ') }>
-                <div className={ classes.Logo }>
-                    <FontAwesomeIcon 
-                    icon="thermometer-three-quarters"/>
-                </div>
                 <nav>
-                    <NavigationItems />
+                    <NavigationItems 
+                    remove={ props.remove }/>
                 </nav>
             </div>
         </Aux>

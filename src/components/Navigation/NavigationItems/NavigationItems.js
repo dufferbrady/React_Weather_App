@@ -4,11 +4,17 @@ import NavigationItem from './NavigationItem/NavigationItem'
 import NavigationSearchItem from './NavigationSearchItems/NavigationSearchItem'
 import classes from './NavigationItems.css'
 
-const navigationItems = props => (
-    <ul className={ classes.NavigationItems }>
-        <NavigationItem link="/">Home</NavigationItem>
-        <NavigationSearchItem/>
-    </ul>
-)
+const navigationItems = props => {
+    let removeDisplay = null
+    if(props.remove) {
+        removeDisplay = classes.Closed
+    }
+    return (
+        <ul className={ classes.NavigationItems }>
+            <NavigationItem link="/">Home</NavigationItem>
+            <NavigationSearchItem className={ removeDisplay }/>
+        </ul>
+    )
+}
 
 export default navigationItems
