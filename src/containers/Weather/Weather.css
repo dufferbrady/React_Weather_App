@@ -86,7 +86,7 @@ html, body {
 .WeatherStats {
     display: flex;
     flex-direction: column;
-    margin-left: 25%;
+    margin-left: 15vw;
     width: 35%;
     align-items: flex-start;
     justify-content: space-evenly;
@@ -107,6 +107,15 @@ html, body {
 
 .Closed {
     display: none
+}
+
+@media (max-width: 865px) {
+    .Weather {
+        width: 80%;
+    }
+    .WeatherStats div {
+        font-size: 95%;
+    }
 }
 
 @media (max-width: 499px) {
@@ -143,13 +152,12 @@ html, body {
         font-size: 80%;
     }
     .WeatherStats {
-        margin-left: 10%;
+        margin-left: 15%;
     }
     .WeatherStats div {
-        font-size: 95%;
+        font-size: 70%;
     }
     .WeatherContainer {
         margin-bottom: 5%;
     }
 }
-

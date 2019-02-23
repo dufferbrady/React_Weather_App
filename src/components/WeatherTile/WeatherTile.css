@@ -1,6 +1,7 @@
 .Tile {
     background-color: rgb(250, 250, 250);
     border: 1px solid transparent;
+    width: 12.5%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -39,6 +40,20 @@
 
 @media (min-width: 499px) {
     .Tile {
+        width: 15%;
+        padding: 10px;
+    }
+    .TileHeader {
+        font-size: 100%;
+    }
+    .TileTemp span {
+        font-size: 100%;
+        padding: 0 5px;
+    }
+}
+
+@media (min-width: 865px) {
+    .Tile {
         width: 12.5%;
         padding: 15px;
     }
@@ -46,7 +61,7 @@
         font-size: 125%;
     }
     .TileTemp span {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
         padding: 0 5px;
     }
 }
