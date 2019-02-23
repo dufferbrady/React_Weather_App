@@ -25,8 +25,8 @@ class NavSearchItem extends Component {
 
     render() {
         return (
-            <li>
-                <form className={ classes.NavigationSearchItem } onSubmit={ this.submitHandler }>
+            <li className={ classes.NavigationSearchItem }>
+                <form className={ classes.NavigationSearchForm } onSubmit={ this.submitHandler }>
                     <input 
                     autoComplete="off"
                     name="city"

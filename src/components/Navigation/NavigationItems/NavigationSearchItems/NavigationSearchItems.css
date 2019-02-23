@@ -1,72 +1,66 @@
-/* .NavSearchItem {
-    margin: 0;
+.NavigationSearchItem {
+    width: 100%;
+}
+
+.NavigationSearchForm {
+    margin: 0 auto;
     display: flex;
     height: 80%;
-    width: auto;
+    width: 80%;
     align-items: center;
-    box-sizing: border-box;
 }
 
-.NavigationItem a:hover,
-.NavigationItem a:active,
-.NavigationItem a.active {
-    background-color: transparent;
-    border-bottom: 2px solid white;
-    color: white;
-}
-
-.NavSearchInput {
-    background-color: transparent;
-    border: none;
-    color: white;
+.NavigationSearchForm input {
     font-family: 'Raleway', sans-serif;
+    background-color: transparent;
+    margin: 0 auto;
+    border: none;
+    color: #2670AF;
     height: 100%;
     padding: 16px 10px;
     border-bottom: 2px solid transparent;
     outline: none;
+    font-size: 110%;
+    text-align: center;
 }
 
-.NavSearchInput:hover,
-.NavSearchInput:active,
-.NavSearchInput.active {
+.NavigationSearchForm input:hover,
+.NavigationSearchForm input:active,
+.NavigationSearchForm input:focus {
     background-color: transparent;
-    border-bottom: 2px solid white;
-    color: white;
-} */
+    border-bottom: 2px solid #2670AF;
+}
 
-.NavigationSearchItem input::placeholder {
-    color: white;
+.NavigationSearchForm input::placeholder {
+    color: #2670AF;
     font-family: 'Raleway', sans-serif;
-    /* font-size: 125%; */
+}
+
+.NavigationSearchForm input:focus::placeholder {
+    color: transparent;
 }
 
 @media (min-width: 500px) {
-    
     .NavigationSearchItem {
-        margin: 0;
+        margin-left: 0;
         display: flex;
         height: 80%;
         width: auto;
         align-items: center;
+        justify-content: flex-end;
     }
-    
-    .NavigationSearchItem input {
-        font-family: 'Raleway', sans-serif;
-        background-color: transparent;
-        border: none;
-        color: white;
-        height: 100%;
-        padding: 16px 10px;
-        border-bottom: 2px solid transparent;
-        outline: none;
-        font-size: 110%;
+    .NavigationSearchForm {
+        margin: 0;
+        width: auto;
     }
-    
-    .NavigationSearchItem input:hover,
-    .NavigationSearchItem input:active,
-    .NavigationSearchItem input.focus {
-        background-color: transparent;
-        border-bottom: 2px solid white;
+    .NavigationSearchForm input:hover,
+    .NavigationSearchForm input:active,
+    .NavigationSearchForm input:focus {
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    color: white;
+    }
+    .NavigationSearchForm input::placeholder {
         color: white;
     }
 }

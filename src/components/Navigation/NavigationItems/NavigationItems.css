@@ -4,7 +4,7 @@
     padding: 0;
     list-style: none;
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     justify-content: space-between;
     align-items: center;
     height: 100%;
@@ -17,5 +17,7 @@
 @media (min-width: 500px) {
     .NavigationItems {
         flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
     }
 }
