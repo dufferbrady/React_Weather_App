@@ -4,6 +4,7 @@ html, body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow: hidden;
   }
 
 .Weather {
@@ -60,7 +61,7 @@ html, body {
 
 .WeatherTempContainer {
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
     align-items: flex-start;
     height: 100%;
 }
@@ -108,19 +109,47 @@ html, body {
     display: none
 }
 
-@media (max-width: 500px) {
+@media (max-width: 499px) {
     .Weather {
-        width: 80%;
+        /* position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; */
+        width: 90%;
+        margin: 175px auto;
     }
     .HeaderContainer {
         margin-left: 10px;
     }
-    /* .WeatherIcon {
-        font-size: 75%;
-        width: 20%;
-    } */
-    /* .Weatherinfo {
-        width: 60%;
-    } */
+    .HeaderCity {
+        font-size: 150%;
+    }
+    .spanItem {
+        font-size: 100%;
+    }
+    .WeatherInfo {
+        align-items: flex-start;
+        margin-top: 5%;
+    }
+    .WeatherTemp {
+        font-size: 250%;
+    }
+    .WeatherIcon {
+        font-size: 150%;
+        width: 40%;
+    }
+    .WeatherTempToggle {
+        font-size: 80%;
+    }
+    .WeatherStats {
+        margin-left: 10%;
+    }
+    .WeatherStats div {
+        font-size: 95%;
+    }
+    .WeatherContainer {
+        margin-bottom: 5%;
+    }
 }
 

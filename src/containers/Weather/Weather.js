@@ -80,7 +80,7 @@ class weather extends Component {
             .catch(error => {
                 this.setState({
                     loading: false,
-                    message: 'Something went wrong. Please try again.',
+                    message: `Sorry, something went wrong searching for "${updatedCity}".`,
                     error: error
                 })
             })

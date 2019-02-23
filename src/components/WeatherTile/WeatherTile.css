@@ -3,8 +3,6 @@
     border: 1px solid transparent;
     display: flex;
     flex-direction: column;
-    width: 12.5%;
-    padding: 15px;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
     color: rgb(148, 148, 148);
@@ -13,13 +11,12 @@
 
 .TileHeader {
     font-weight: 500;
-    font-size: 125%;
+    font-size: 90%;
     width: 100%;
 }
 
 .TileTemp span {
-    font-size: 1.5vw;
-    padding: 0 5px;
+    padding: 0 2.5px;
 }
 
 .MaxTemp {
@@ -30,7 +27,8 @@
     color: #D9D9D9
 }
 
-.Tile:active, .Tile:hover {
+.Tile:active, 
+.Tile:hover {
     border: 1px solid #2670AF;
     box-sizing: border-box;
 }
@@ -39,6 +37,16 @@
     display: none;
 }
 
-@media (max-width: 500px) {
-    
+@media (min-width: 499px) {
+    .Tile {
+        width: 12.5%;
+        padding: 15px;
+    }
+    .TileHeader {
+        font-size: 125%;
+    }
+    .TileTemp span {
+        font-size: 1.5vw;
+        padding: 0 5px;
+    }
 }

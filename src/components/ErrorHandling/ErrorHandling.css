@@ -50,3 +50,15 @@ html, body {
 .Summary {
     outline: none;
 }
+
+@media (max-width: 499px) {
+    .Error {
+        height: 50%;
+        width: 80%;
+    }
+
+    .Message h2 {
+        font-size: 120%;
+        margin-top: 5%;
+    }
+}
