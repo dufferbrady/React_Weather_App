@@ -56,7 +56,7 @@ class weather extends Component {
         const API_Key = "4c04be157de57a31223958d6b571bd89"
         const updatedCity = city.charAt(0).toUpperCase() + city.slice(1);
         this.setState({city: updatedCity})
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_Key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${updatedCity}&APPID=${API_Key}`)
             .then(res => res.json())
             .then(data => {
                 const temp = (data.main.temp - 273.15).toFixed(0);
@@ -121,7 +121,7 @@ class weather extends Component {
         this.setState({forecastLoading: true})
         const city = this.state.city
         const API_key = "4c04be157de57a31223958d6b571bd89"
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_key}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
