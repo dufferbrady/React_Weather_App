@@ -21,6 +21,8 @@ class NavSearchItem extends Component {
             search: `?city=${queryParams}`
         })
         this.setState({newCity: ""})
+        //Close the sidebar and backdrop when new search is submitted
+        this.props.closed() 
     }
 
     render() {

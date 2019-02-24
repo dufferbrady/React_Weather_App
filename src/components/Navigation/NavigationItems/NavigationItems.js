@@ -11,8 +11,12 @@ const navigationItems = props => {
     }
     return (
         <ul className={ classes.NavigationItems }>
-            <NavigationItem link="/">Home</NavigationItem>
-            <NavigationSearchItem className={ removeDisplay }/>
+            <NavigationItem 
+            link="/"
+            closed={ props.closed }>Home</NavigationItem>
+            <NavigationSearchItem 
+            className={ removeDisplay }
+            closed={ props.closed }/>
         </ul>
     )
 }

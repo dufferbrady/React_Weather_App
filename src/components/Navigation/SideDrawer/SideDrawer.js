@@ -19,6 +19,7 @@ const sideDrawer = props => {
             <div className={ attachedClasses.join(' ') }>
                 <nav>
                     <NavigationItems 
+                    closed={ props.closed }
                     remove={ props.remove }/>
                 </nav>
             </div>
