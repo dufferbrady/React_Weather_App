@@ -28,7 +28,7 @@ const weatherForecast = props => {
             temp_max = ((day.main.temp_max - 273.15) * (9 / 5) + 32).toFixed(0);
             temp_min = ((day.main.temp_min - 273.15) * (9 / 5) + 32).toFixed(0);
         }
-        let imageURL = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`
+        let imageURL = `https://openweathermap.org/img/w/${day.weather[0].icon}.png`
         return (
             <WeatherTile 
             day={ date }
