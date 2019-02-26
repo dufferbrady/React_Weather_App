@@ -63,10 +63,7 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "homepage": "https://dufferbrady.github.io/react-weather-app",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "node server.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
