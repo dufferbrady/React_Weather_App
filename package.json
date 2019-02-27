@@ -65,9 +65,12 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "node server.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
